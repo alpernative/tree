@@ -25,10 +25,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/hello-pangea/dnd.git"
+    "url": "https://github.com/alpernative/tree.git"
   },
   "bugs": {
-    "url": "https://github.com/hello-pangea/dnd/issues"
+    "url": "https://github.com/alpernative/tree/issues"
   },
   "exports": {
     ".": {
