@@ -39,7 +39,7 @@ export const calculateFinalDropPositions = (
   return { sourcePosition, destinationPosition };
 };
 
-export function getVirtualItemStyle({ provided, style, isDragging }: VirtualItemStyle) {
+export function getVirtualItemStyle({ provided, style, isDragging }: VirtualItemStyle): React.CSSProperties {
   const combined = {
     ...style,
     ...provided.draggableProps.style,
