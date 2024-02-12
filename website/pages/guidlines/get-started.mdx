@@ -1,0 +1,173 @@
+import { Tabs } from 'nextra/components';
+
+### Installation
+
+You can install the package via npm, pnpm, bun and yarn
+
+```sh npm2yarn copy
+npm i @alpernative/tree
+```
+
+### Basic Usage
+
+We need to create `TreeItem.tsx` file to render the tree items
+
+```jsx copy
+import { FC, useState } from 'react';
+import { AiOutlineFile, AiOutlineFolder, AiOutlineFolderOpen } from 'react-icons/ai';
+import { RenderItemParams } from '@alpernative/tree';
+
+export const TreeItem: FC<RenderItemParams> = ({ item, provided, onCollapse, onExpand }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const renderItemIcon = () => {
+    // You can customize the your icons based on the item's properties
+    if (!item.hasChildren) return <AiOutlineFile />;
+    if (item.isExpanded) return <AiOutlineFolderOpen />;
+    return <AiOutlineFolder />;
+  };
+
+  return (
+    <div
+      ref={provided.innerRef}
+      {...provided.draggableProps}
+      {...provided.dragHandleProps}
+      onClick={() => setIsSelected(value => !value)}
+    >
+      <div style={{ color: isSelected ? 'red' : 'gray' }}>
+        {item.hasChildren && (item.isExpanded ? '>' : '<')}
+        {renderItemIcon()}
+        {item.data.title}
+      </div>
+    </div>
+  );
+};
+
+```
+
+Then we can use the `Tree` component in our `App.tsx` file
+
+```jsx copy
+import Tree from '@alpernative/tree';
+import { FC, useState } from 'react';
+import { TreeItem } from './TreeItem';
+
+export const basicTreeData = {
+  rootId: 'root',
+  items: {
+    root: {
+      id: 'root',
+      data: { title: 'Root' },
+      children: ['item-0'],
+      hasChildren: true,
+      isExpanded: true,
+      isChildrenLoading: false,
+    },
+    'item-0': {
+      id: 'item-0',
+      data: {
+        title: 'Item 0',
+      },
+      children: [
+        'item-1',
+        'item-2',
+        'item-3',
+        'item-4',
+      ],
+      hasChildren: true,
+      isExpanded: true,
+      isChildrenLoading: false,
+    },
+    'item-1': {
+      id: 'item-1',
+      data: {
+        title: 'Item 1',
+      },
+      children: [],
+      hasChildren: false,
+      isExpanded: true,
+      isChildrenLoading: false,
+    },
+    'item-2': {
+      id: 'item-2',
+      data: {
+        title: 'Item 2',
+      },
+      children: [],
+      hasChildren: false,
+      isExpanded: true,
+      isChildrenLoading: false,
+    },
+    'item-3': {
+      id: 'item-3',
+      data: {
+        title: 'Item 3',
+      },
+      children: [],
+      hasChildren: false,
+      isExpanded: true,
+      isChildrenLoading: false,
+    },
+    'item-4': {
+      id: 'item-4',
+      data: {
+        title: 'Item 4',
+      },
+      children: [],
+      hasChildren: false,
+      isExpanded: true,
+      isChildrenLoading: false,
+    },
+  },
+};
+
+
+export const App: FC = () => {
+  const [treeData, setTreeData] = useState<TreeData>(basicTreeData);
+
+  const onExpand = (ItemId: ItemId) => {
+    setTreeData(mutateTree(treeData, ItemId, { isExpanded: true }));
+  };
+
+  const onCollapse = (ItemId: ItemId) => {
+    setTreeData(mutateTree(treeData, ItemId, { isExpanded: false }));
+  };
+
+  const onDragEnd = (source: TreeSourcePosition, destination?: TreeDestinationPosition) => {
+    if (!destination) return;
+
+    const newTree = moveItemOnTree(treeData, source, destination);
+    setTreeData(newTree);
+  };
+
+  return (
+    <div style={{ width: 200, height: 300 }}>
+      <Tree
+        tree={treeData}
+        offsetPerLevel={19}
+        renderItem={props => <TreeItem {...props} />}
+        onExpand={onExpand}
+        onCollapse={onCollapse}
+        onDragEnd={onDragEnd}
+        isNestingEnabled
+        isDragEnabled
+        virtualItemHeight={24}
+        isVirtualizationEnabled
+      />
+    </div>
+  );
+};
+
+```
+
+## Documentation
+
+For full documentation, visit [Link to Documentation](documentation-link).
+
+## Contributing
+
+Contributions are always welcome! Please read the [contribution guidelines](CONTRIBUTING.md) first.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
