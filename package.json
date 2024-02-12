@@ -47,7 +47,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "prepare": "npm run build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "dev:docs": "pnpm --filter docs dev"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^16.5.0",
