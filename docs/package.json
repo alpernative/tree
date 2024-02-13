@@ -1,7 +1,7 @@
 {
   "name": "docs",
   "version": "1.0.0",
-  "description": "",
+  "description": "AlperNative Tree Documentation",
   "main": "index.js",
   "scripts": {
     "dev": "next",
@@ -9,7 +9,7 @@
     "start": "next start"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alperen Karaguzel",
   "license": "ISC",
   "dependencies": {
     "@emotion/react": "^11.11.3",

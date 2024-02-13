@@ -1,4 +1,4 @@
-import { TreeData } from 'lib/types';
+import { TreeData } from 'lib/src/types';
 
 export const treeWithThreeLeaves: TreeData = {
   rootId: '1',

@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-vite';
+import path from 'path';
 import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
@@ -21,7 +22,7 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       // customize the Vite config here
       resolve: {
-        alias: { lib: '/lib' },
+        alias: { lib: path.resolve(__dirname, '../../lib') },
       },
     });
   },

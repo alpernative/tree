@@ -7,7 +7,8 @@ import {
   DraggableProvided,
   DraggableStateSnapshot,
 } from '@hello-pangea/dnd';
-import { RenderItemParams } from 'lib/components/TreeItem/TreeItem-types';
+
+import { RenderItemParams } from 'lib/src/components/TreeItem/TreeItem-types';
 import {
   TreeData,
   Path,
@@ -17,7 +18,7 @@ import {
   TreeDestinationPosition,
   TreeItem,
   FlattenedItem,
-} from 'lib/types';
+} from 'lib/src/types';
 
 export type Props = {
   /** The tree data structure. */

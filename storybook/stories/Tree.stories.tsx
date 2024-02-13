@@ -2,6 +2,7 @@ import { ComponentProps, FC, useState } from 'react';
 
 import styled from '@emotion/styled';
 import { Meta, StoryObj } from '@storybook/react';
+
 import Tree, {
   moveItemOnTree,
   mutateTree,
@@ -10,7 +11,7 @@ import Tree, {
   TreeDestinationPosition,
   TreeSourcePosition,
   RenderItemParams,
-} from 'lib';
+} from 'lib/src';
 
 import { ITEM_HEIGHT, TreeItem } from './TreeItem';
 import { virtualTree } from './__mocks__/virtualTree';

@@ -5,15 +5,15 @@ import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), dts({ exclude: ['**/stories/**/*'] })],
+  plugins: [react(), dts({ include: ['../lib/src/**/*'] })],
   resolve: {
     alias: {
-      lib: path.resolve(__dirname, 'lib'),
+      lib: path.resolve(__dirname, '../lib'),
     },
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'lib/index.ts'),
+      entry: path.resolve(__dirname, '../lib/src/index.ts'),
       name: 'tree',
       fileName: format => `index.${format}.js`,
     },

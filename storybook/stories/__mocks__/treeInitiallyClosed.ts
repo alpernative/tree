@@ -1,4 +1,4 @@
-import { TreeData } from 'lib/types';
+import { TreeData } from 'lib/src/types';
 
 export const treeInitiallyClosed: TreeData = {
   rootId: 'tree',

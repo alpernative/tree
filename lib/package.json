@@ -1,0 +1,65 @@
+{
+  "name": "@alpernative/tree",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "author": "Alperen Karaguzel",
+  "keywords": [
+    "react",
+    "tree",
+    "dnd",
+    "drag",
+    "drop",
+    "react-tree",
+    "react-treeview",
+    "react-dnd",
+    "react-dnd-tree",
+    "react-dnd-treeview",
+    "react-dnd-treeview-draggable",
+    "react-dnd-treeview-draggable-droppable",
+    "react-dnd-treeview-draggable-droppable-tree",
+    "@alpernative/tree",
+    "alperen/tree"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alpernative/tree.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alpernative/tree/issues"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    }
+  },
+  "files": [
+    "/dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsc && vite build"
+  },
+  "dependencies": {
+    "@hello-pangea/dnd": "^16.5.0",
+    "css-box-model": "^1.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-virtualized-auto-sizer": "^1.0.22",
+    "react-window": "^1.8.10"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "@types/react-window": "^1",
+    "vite": "^5.1.0",
+    "vite-plugin-dts": "^3.7.2",
+    "typescript": "^5.2.2",
+    "@vitejs/plugin-react": "^4.2.1"
+  }
+}

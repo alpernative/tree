@@ -1,9 +1,10 @@
 import { CSSProperties, Component } from 'react';
 
 import { DraggableProvidedDraggableProps, DraggableStateSnapshot } from '@hello-pangea/dnd';
-import { Any } from 'lib/types';
-import { isSamePath } from 'lib/utils/path';
-import { sameProps } from 'lib/utils/react';
+
+import { Any } from 'lib/src/types';
+import { isSamePath } from 'lib/src/utils/path';
+import { sameProps } from 'lib/src/utils/react';
 
 import { Props, TreeDraggableProvided } from './TreeItem-types';
 
