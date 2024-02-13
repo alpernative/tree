@@ -8,12 +8,12 @@ export default defineConfig({
   plugins: [react(), dts({ exclude: ['**/stories/**/*'] })],
   resolve: {
     alias: {
-      src: path.resolve(__dirname, 'src'),
+      lib: path.resolve(__dirname, 'lib'),
     },
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: path.resolve(__dirname, 'lib/index.ts'),
       name: 'tree',
       fileName: format => `index.${format}.js`,
     },

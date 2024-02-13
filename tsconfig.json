@@ -23,6 +23,6 @@
     "declaration": true,
     "typeRoots": ["./dist/index.d.ts"]
   },
-  "include": ["src", "./index.d.ts", "stories"],
+  "include": ["lib", "./index.d.ts", "stories"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,4 +1,4 @@
-import { TreeData } from 'src/types';
+import { TreeData } from 'lib/types';
 
 import TreeBuilder from './TreeBuilder';
 

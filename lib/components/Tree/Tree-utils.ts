@@ -1,6 +1,6 @@
-import { Path, TreeSourcePosition, TreeDestinationPosition, TreeData, FlattenedTree } from 'src/types';
-import { getDestinationPath, getSourcePath } from 'src/utils/flat-tree';
-import { getTreePosition } from 'src/utils/tree';
+import { Path, TreeSourcePosition, TreeDestinationPosition, TreeData, FlattenedTree } from 'lib/types';
+import { getDestinationPath, getSourcePath } from 'lib/utils/flat-tree';
+import { getTreePosition } from 'lib/utils/tree';
 
 import { DragState, VirtualItemStyle } from './Tree-types';
 

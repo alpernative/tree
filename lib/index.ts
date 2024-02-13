@@ -1,4 +1,4 @@
-import Tree from 'src/components/Tree';
+import Tree from 'lib/components/Tree';
 
 export { mutateTree, moveItemOnTree } from './utils/tree';
 export type { RenderItemParams } from './components/TreeItem/TreeItem-types';

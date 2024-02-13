@@ -6,8 +6,7 @@ import {
   DraggableProvidedDragHandleProps,
   DraggingStyle,
 } from '@hello-pangea/dnd';
-
-import { ItemId, Path, TreeItem } from 'src/types';
+import { ItemId, Path, TreeItem } from 'lib/types';
 
 import { DraggableProvidedProps } from '.';
 

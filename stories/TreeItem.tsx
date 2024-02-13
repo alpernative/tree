@@ -1,10 +1,9 @@
 import { FC, useState } from 'react';
 
 import styled from '@emotion/styled';
+import { RenderItemParams } from 'lib/components/TreeItem/TreeItem-types';
 import { AiOutlineFile, AiOutlineFolder, AiOutlineFolderOpen } from 'react-icons/ai';
 import { IoCaretDownOutline as DownIcon, IoCaretForwardOutline as RightIcon } from 'react-icons/io5';
-
-import { RenderItemParams } from 'src/components/TreeItem/TreeItem-types';
 
 export const ITEM_HEIGHT = 24;
 

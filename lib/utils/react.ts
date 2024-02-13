@@ -1,4 +1,4 @@
-import { Any } from 'src/types';
+import { Any } from 'lib/types';
 
 export const sameProps = (oldProps: Any, newProps: Any, props: string[]) =>
   props.find(p => oldProps[p] !== newProps[p]) === undefined;

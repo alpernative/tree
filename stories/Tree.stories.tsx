@@ -10,7 +10,7 @@ import Tree, {
   TreeDestinationPosition,
   TreeSourcePosition,
   RenderItemParams,
-} from 'src';
+} from 'lib';
 
 import { ITEM_HEIGHT, TreeItem } from './TreeItem';
 import { virtualTree } from './__mocks__/virtualTree';

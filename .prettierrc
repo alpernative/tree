@@ -8,7 +8,7 @@
   "bracketSpacing": true,
   "arrowParens": "avoid",
   "semi": true,
-  "importOrder": ["^react$", "<THIRD_PARTY_MODULES>", "^src/(.*)$", "^[./]"],
+  "importOrder": ["^react$", "<THIRD_PARTY_MODULES>", "^lib/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

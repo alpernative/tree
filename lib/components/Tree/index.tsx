@@ -12,15 +12,14 @@ import {
   DroppableProvided,
 } from '@hello-pangea/dnd';
 import { getBox } from 'css-box-model';
+import TreeItem from 'lib/components/TreeItem';
+import { FlattenedItem, ItemId, Path, TreeData } from 'lib/types';
+import DelayedFunction from 'lib/utils/delayed-function';
+import { getDestinationPath, getItemById, getIndexById } from 'lib/utils/flat-tree';
+import { noop } from 'lib/utils/handy';
+import { flattenTree, mutateTree } from 'lib/utils/tree';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import { areEqual, FixedSizeList } from 'react-window';
-
-import TreeItem from 'src/components/TreeItem';
-import { FlattenedItem, ItemId, Path, TreeData } from 'src/types';
-import DelayedFunction from 'src/utils/delayed-function';
-import { getDestinationPath, getItemById, getIndexById } from 'src/utils/flat-tree';
-import { noop } from 'src/utils/handy';
-import { flattenTree, mutateTree } from 'src/utils/tree';
 
 import { Props, State, DragState, VirtualItemProps, VirtualRowProps } from './Tree-types';
 import { calculateFinalDropPositions, getVirtualItemStyle } from './Tree-utils';

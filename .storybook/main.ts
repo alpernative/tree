@@ -21,7 +21,7 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       // customize the Vite config here
       resolve: {
-        alias: { src: '/src' },
+        alias: { lib: '/lib' },
       },
     });
   },
