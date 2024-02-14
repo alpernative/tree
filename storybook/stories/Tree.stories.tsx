@@ -56,6 +56,7 @@ export const TreeStory: FC<ComponentProps<typeof Tree>> = ({ tree, isVirtualizat
         onExpand={onExpand}
         onCollapse={onCollapse}
         onDragEnd={onDragEnd}
+        isDragEnabled
         isVirtualizationEnabled={isVirtualizationEnabled}
       />
     </StyledVirtualTreeWrapper>
