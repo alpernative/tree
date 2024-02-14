@@ -1,8 +1,10 @@
 {
   "name": "@alpernative/tree",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "type": "module",
   "main": "dist/index.umd.js",
+  "license": "MIT",
+  "homepage": "https://tree.alpernative.vercel.app/",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "author": "Alperen Karaguzel",
