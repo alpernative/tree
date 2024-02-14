@@ -1,14 +1,14 @@
 ## AlperNative Tree
 
-[`@alpernative/tree`](npm-link) is a high-performance, customizable tree component for React. It provides a wide range of features, including virtualization, drag-and-drop, and nested drag-and-drop support.
+[`@alpernative/tree`](https://www.npmjs.com/package/@alpernative/tree) is a high-performance, customizable tree component for React. It provides a wide range of features, including virtualization, drag-and-drop, and nested drag-and-drop support.
 
 ## Features
 
-- **High Performance**: [`@alpernative/tree`](npm-link) is designed to handle large datasets with ease, providing smooth and responsive user experiences.
-- **Customizable**: [`@alpernative/tree`](npm-link) offers a wide range of customization options, allowing you to tailor the appearance and behavior of the tree to your specific needs.
-- **Virtualization**: [`@alpernative/tree`](npm-link) supports virtualization, enabling you to render only the visible portion of the tree, which can significantly improve performance when working with large datasets.
-- **Drag and Drop**: [`@alpernative/tree`](npm-link) provides built-in support for drag-and-drop operations, making it easy to rearrange tree nodes.
-- **Nested Drag and Drop**: [`@alpernative/tree`](npm-link) supports nested drag-and-drop operations, allowing you to move nodes within and between different levels of the tree.
+- **High Performance**: [`@alpernative/tree`](https://www.npmjs.com/package/@alpernative/tree) is designed to handle large datasets with ease, providing smooth and responsive user experiences.
+- **Customizable**: [`@alpernative/tree`](https://www.npmjs.com/package/@alpernative/tree) offers a wide range of customization options, allowing you to tailor the appearance and behavior of the tree to your specific needs.
+- **Virtualization**: [`@alpernative/tree`](https://www.npmjs.com/package/@alpernative/tree) supports virtualization, enabling you to render only the visible portion of the tree, which can significantly improve performance when working with large datasets.
+- **Drag and Drop**: [`@alpernative/tree`](https://www.npmjs.com/package/@alpernative/tree) provides built-in support for drag-and-drop operations, making it easy to rearrange tree nodes.
+- **Nested Drag and Drop**: [`@alpernative/tree`](https://www.npmjs.com/package/@alpernative/tree) supports nested drag-and-drop operations, allowing you to move nodes within and between different levels of the tree.
 
 ## Getting Started
 
@@ -28,10 +28,12 @@ yarn add @alpernative/tree
 
 We need to create `TreeItem.tsx` file to render the tree items
 
-```jsx
+```tsx
 import { FC, useState } from 'react';
+
+import { RenderItemParams, TreeItem as TreeItemType } from '@alpernative/tree';
 import { AiOutlineFile, AiOutlineFolder, AiOutlineFolderOpen } from 'react-icons/ai';
-import { RenderItemParams } from '@alpernative/tree';
+import { FaChevronRight, FaChevronDown } from 'react-icons/fa';
 
 export const TreeItem: FC<RenderItemParams> = ({ item, provided, onCollapse, onExpand }) => {
   const [isSelected, setIsSelected] = useState(false);
@@ -43,29 +45,36 @@ export const TreeItem: FC<RenderItemParams> = ({ item, provided, onCollapse, onE
     return <AiOutlineFolder />;
   };
 
+  const handleOnClick = (item: TreeItemType) => {
+    setIsSelected(value => !value);
+    if (item.isExpanded) onCollapse(item.id);
+    if (!item.isExpanded) onExpand(item.id);
+  };
+
   return (
     <div
       ref={provided.innerRef}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
-      onClick={() => setIsSelected(value => !value)}
+      onClick={() => handleOnClick(item)}
     >
       <div style={{ color: isSelected ? 'red' : 'gray' }}>
-        {item.hasChildren && (item.isExpanded ? '>' : '<')}
+        {item.hasChildren && (item.isExpanded ? <FaChevronDown /> : <FaChevronRight />)}
         {renderItemIcon()}
         {item.data.title}
       </div>
     </div>
   );
 };
-
 ```
 
 Then we can use the `Tree` component in our `App.tsx` file
 
-```jsx
-import Tree from '@alpernative/tree';
+```tsx
 import { FC, useState } from 'react';
+
+import Tree from '@alpernative/tree';
+
 import { TreeItem } from './TreeItem';
 
 export const basicTreeData = {
@@ -84,12 +93,7 @@ export const basicTreeData = {
       data: {
         title: 'Item 0',
       },
-      children: [
-        'item-1',
-        'item-2',
-        'item-3',
-        'item-4',
-      ],
+      children: ['item-1', 'item-2', 'item-3', 'item-4'],
       hasChildren: true,
       isExpanded: true,
       isChildrenLoading: false,
@@ -137,7 +141,6 @@ export const basicTreeData = {
   },
 };
 
-
 export const App: FC = () => {
   const [treeData, setTreeData] = useState<TreeData>(basicTreeData);
 
@@ -173,17 +176,14 @@ export const App: FC = () => {
     </div>
   );
 };
-
 ```
+
+## Examples
+
+Looking for more examples? Check out the [Storybook](https://tree.alpernative.vercel.app/) for a wide range of use cases and customization options.
+
+Do you want more? Check out the [CodeSandbox](https://codesandbox.io/p/sandbox/strange-knuth-k69ykm?file=%2Fsrc%2FApp.tsx%3A10%2C31) for a wide range of use cases and customization options.
 
 ## Documentation
 
-For full documentation, visit [Link to Documentation](documentation-link).
-
-## Contributing
-
-Contributions are always welcome! Please read the [contribution guidelines](CONTRIBUTING.md) first.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.
+For full documentation, visit [Link to Documentation](https://tree.alpernative.vercel.app/).
