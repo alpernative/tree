@@ -167,7 +167,7 @@ export const App: FC = () => {
         onDragEnd={onDragEnd}
         isNestingEnabled
         isDragEnabled
-        virtualItemHeight={ITEM_HEIGHT}
+        virtualItemHeight={24}
         isVirtualizationEnabled
       />
     </div>

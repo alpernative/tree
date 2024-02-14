@@ -10,14 +10,35 @@ npm i @alpernative/tree
 
 ### Basic Usage
 
+Below, in the CodeSandbox, you can find an example demonstrating the basic usage of the Tree component:
+
+<iframe
+  src="https://codesandbox.io/embed/k69ykm?view=Editor+%2B+Preview&module=%2Fsrc%2FApp.tsx"
+  className="w-full h-[500px] border-0 rounded overflow-hidden mt-5"
+  title="strange-knuth"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 We need to create `TreeItem.tsx` file to render the tree items
 
 ```jsx copy
-import { FC, useState } from 'react';
-import { AiOutlineFile, AiOutlineFolder, AiOutlineFolderOpen } from 'react-icons/ai';
-import { RenderItemParams } from '@alpernative/tree';
+import { FC, useState } from "react";
+import {
+  AiOutlineFile,
+  AiOutlineFolder,
+  AiOutlineFolderOpen,
+} from "react-icons/ai";
+import { FaChevronRight, FaChevronDown } from "react-icons/fa";
 
-export const TreeItem: FC<RenderItemParams> = ({ item, provided, onCollapse, onExpand }) => {
+import { RenderItemParams, TreeItem as TreeItemType } from "@alpernative/tree";
+
+export const TreeItem: FC<RenderItemParams> = ({
+  item,
+  provided,
+  onCollapse,
+  onExpand,
+}) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const renderItemIcon = () => {
@@ -27,21 +48,29 @@ export const TreeItem: FC<RenderItemParams> = ({ item, provided, onCollapse, onE
     return <AiOutlineFolder />;
   };
 
+  const handleOnClick = (item: TreeItemType) => {
+    setIsSelected((value) => !value);
+    if (item.isExpanded) onCollapse(item.id);
+    if (!item.isExpanded) onExpand(item.id);
+  };
+
   return (
     <div
       ref={provided.innerRef}
       {...provided.draggableProps}
       {...provided.dragHandleProps}
-      onClick={() => setIsSelected(value => !value)}
+      onClick={() => handleOnClick(item)}
     >
-      <div style={{ color: isSelected ? 'red' : 'gray' }}>
-        {item.hasChildren && (item.isExpanded ? '>' : '<')}
+      <div style={{ color: isSelected ? "red" : "gray" }}>
+        {item.hasChildren &&
+          (item.isExpanded ? <FaChevronDown /> : <FaChevronRight />)}
         {renderItemIcon()}
         {item.data.title}
       </div>
     </div>
   );
 };
+
 
 ```
 
@@ -159,15 +188,3 @@ export const App: FC = () => {
 };
 
 ```
-
-## Documentation
-
-For full documentation, visit [Link to Documentation](documentation-link).
-
-## Contributing
-
-Contributions are always welcome! Please read the [contribution guidelines](CONTRIBUTING.md) first.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details.

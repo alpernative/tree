@@ -1,0 +1,20 @@
+import { OptionTable } from '../../components/table';
+
+## mutateTree Function
+
+`mutateTree` function is designed to apply mutations to a specific item within the tree data structure without altering the overall structure of the tree.
+
+<OptionTable
+  options={[
+    ['tree', 'TreeData', 'The current tree data structure.'],
+    ['ItemId', 'ItemId', 'The unique identifier of the item to mutate.'],
+    ['mutation', 'TreeItemMutation', 'An object representing the changes to be applied to the item.'],
+    ['returns', 'TreeData', 'The updated tree data structure after applying the mutation to the specified item.'],
+  ]}
+/>
+
+### Example Usage
+
+```jsx copy
+const updatedTree = mutateTree(treeData, 'item-1', { isExpanded: true });
+```

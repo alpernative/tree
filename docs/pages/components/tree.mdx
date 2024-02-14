@@ -1,0 +1,94 @@
+import { OptionTable } from '../../components/table';
+
+Based on the provided type definitions for your `Tree` component, here's a comprehensive and understandable MDX documentation that you can use:
+
+# Tree Component API Reference
+
+The `Tree` component provides a flexible and interactive way to display hierarchical data structures within your React application. It supports features like expand/collapse, drag-and-drop reordering, nesting, and virtualization for performance optimization with large datasets.
+
+## Props
+
+<OptionTable
+  options={[
+    ['tree', 'TreeData', 'The tree data structure to be rendered.'],
+    ['onExpand', '(ItemId: ItemId, path: Path) => void', 'Function called when a parent item needs to be expanded.'],
+    ['onCollapse', '(ItemId: ItemId, path: Path) => void', 'Function called when a parent item needs to be collapsed.'],
+    ['onDragStart', '(ItemId: ItemId) => void', 'Function called when the user starts dragging an item.'],
+    [
+      'onDragEnd',
+      '(\n sourcePosition: TreeSourcePosition,\n destinationPosition?: TreeDestinationPosition\n) => void',
+      'Function called when the user finishes dragging, with source and optional destination positions.',
+    ],
+    ['renderItem', '(item: RenderItemParams) => ReactNode', 'Function to render a single item within the tree.'],
+    ['offsetPerLevel', 'number', 'Pixel offset used to scaffold the tree by the consumer'],
+    [
+      'isDragEnabled',
+      'boolean | ((item: TreeItem) => boolean)',
+      'Enables drag-and-drop reordering on the tree. Can be conditionally set based on the item.',
+    ],
+    ['isNestingEnabled', 'boolean', 'Allows items to be nested within each other while dragging.'],
+    [
+      'isVirtualizationEnabled',
+      'boolean',
+      'Enables virtualization to render only visible parts of the tree, improving performance with large datasets.',
+    ],
+    [
+      'virtualItemHeight',
+      'number',
+      "Virtual item's height. If the isVirtualizationEnabled is true, please set it manually.",
+    ],
+  ]}
+/>
+## Types
+
+## RenderItemParams
+
+`RenderItemParams` provides properties essential for rendering a tree item with drag-and-drop functionality.
+
+<OptionTable
+  options={[
+    ['item', 'TreeItem', 'The tree item that is being rendered.'],
+    ['onExpand', '(ItemId: ItemId) => void', 'Function called when an item needs to be expanded.'],
+    ['onCollapse', '(ItemId: ItemId) => void', 'Function called when an item needs to be collapsed.'],
+    ['provided', 'DraggableProvided', 'Provides drag-and-drop handlers, including draggable props.'],
+    ['snapshot', 'DraggableStateSnapshot', 'Contains state information about the drag-and-drop operation.'],
+  ]}
+/>
+
+## TreeItem
+
+`TreeItem` represents a single item within the tree structure.
+
+<OptionTable
+  options={[
+    ['id', 'ItemId', 'Unique identifier for the item.'],
+    ['children', 'ItemId[]', "Array of ItemIds representing the item's children."],
+    ['hasChildren', 'boolean?', 'Optional boolean indicating if the item has children.'],
+    ['isExpanded', 'boolean?', "Optional boolean indicating if the item's children are currently visible."],
+    ['isChildrenLoading', 'boolean?', "Optional boolean indicating if the item's children are being loaded."],
+    ['data', 'TreeItemData?', 'Optional field for additional data associated with the item.'],
+  ]}
+/>
+
+## TreeData
+
+`TreeData` structures the overall tree data.
+
+<OptionTable
+  options={[
+    ['rootId', 'ItemId', 'The unique identifier for the root item of the tree.'],
+    ['items', 'Record<ItemId, TreeItem>', 'An object mapping each ItemId to its corresponding TreeItem.'],
+  ]}
+/>
+
+## Example Usage
+
+Below, in the CodeSandbox, you can find an example demonstrating the example usage of the Tree component:
+
+<iframe
+  src="https://codesandbox.io/embed/k69ykm?view=Editor+%2B+Preview&module=%2Fsrc%2FApp.tsx"
+  className="w-full h-[500px] border-0 rounded overflow-hidden mt-5"
+  title="strange-knuth"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>

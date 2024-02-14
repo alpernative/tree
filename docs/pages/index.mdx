@@ -1,1 +1,50 @@
-# Hello There!
+# Introduction
+
+AlperNative Tree is a tree component for React. It is a highly customizable and performant tree component that supports virtualization, drag and drop, and nested drag and drop. It is built with TypeScript and has a rich set of features.
+
+## Features
+
+- **High Performance**: AlperNative **Tree** is designed to handle large datasets with ease, providing smooth and responsive user experiences.
+- **Customizable**: AlperNative **Tree** offers a wide range of customization options, allowing you to tailor the appearance and behavior of the tree to your specific needs.
+- **Virtualization**: AlperNative **Tree** supports virtualization, enabling you to render only the visible portion of the tree, which can significantly improve performance when working with large datasets.
+- **Drag and Drop**: AlperNative **Tree** provides built-in support for drag-and-drop operations, making it easy to rearrange tree nodes.
+- **Nested Drag and Drop**: AlperNative **Tree** supports nested drag-and-drop operations, allowing you to move nodes within and between different levels of the tree.
+
+## AlperNative Tree FAQ
+
+This is a collection of frequently asked questions about AlperNative Tree. If you have a question that is not answered here, please [open an issue](https://github.com/alpernative/tree/issues)
+
+export function FAQBox({ title, children }) {
+  return (
+    <details open className="last-of-type:mb-0 rounded-lg bg-neutral-50 dark:bg-neutral-800 p-2 mt-4">
+      <summary>
+        <strong className="text-lg">{title}</strong>
+      </summary>
+      <div className="nx-p-2">{children}</div>
+    </details>
+  );
+}
+
+<FAQBox title="Alpernative Tree support React 18?">Yes, AlperNative Tree supports React 18</FAQBox>
+
+<FAQBox title="AlperNative Tree support Virtualization?">
+    Yes, AlperNative Tree supports virtualization. It uses the
+    [react-window](https://github.com/bvaughn/react-window) and [react-virtualized-auto-sizer](https://github.com/bvaughn/react-virtualized-auto-sizer) library to render large lists. If you want to use virtualization, you can add props like `virtualItemHeight` and `isVirtualizationEnabled` to the `Tree` component.
+
+</FAQBox>
+
+<FAQBox title="AlperNative Tree support Support DnD?">
+  Yes, AlperNative Tree supports drag and drop. It uses the [@hello-pangea/dnd](https://github.com/hello-pangea/dnd)
+  library to support drag and drop. The [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) library is a
+  continuation of Atlassian's [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) library, which has
+  announced that it will no longer be supported. Normally,
+  [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) does not support React 18, which is why
+  [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) is being used instead. In the AlperNative Tree, the
+  [@hello-pangea/dnd](https://github.com/hello-pangea/dnd) library is utilized as the drag-and-drop (DnD) library. If
+  you want to use DnD, you can add props like `isDragEnabled` to the `Tree` component.
+</FAQBox>
+
+<FAQBox title="Alpernative Tree support nested Drag and Drop?">
+  Yes, AlperNative Tree supports nested drag and drop. If you want to use nested drag and drop, you can add props like
+  `isNestingEnabled` to the `Tree` component.
+</FAQBox>

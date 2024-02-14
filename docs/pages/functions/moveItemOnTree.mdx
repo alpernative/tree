@@ -1,0 +1,24 @@
+import { OptionTable } from '../../components/table';
+
+## moveItemOnTree Function
+
+`moveItemOnTree` function allows for repositioning an item within the tree data structure, ensuring the tree maintains its integrity after the move.
+
+<OptionTable
+  options={[
+    ['tree', 'TreeData', 'The current tree data structure.'],
+    ['from', 'TreeSourcePosition', 'The source position of the item being moved, including its parent ID and index.'],
+    [
+      'to',
+      'TreeDestinationPosition',
+      'The destination position for the item, including the target parent ID and new index.',
+    ],
+    ['returns', 'TreeData', 'The updated tree data structure after the item has been moved.'],
+  ]}
+/>
+
+### Example Usage
+
+```jsx copy
+const updatedTree = moveItemOnTree(treeData, { parentId: 'root', index: 0 }, { parentId: 'root', index: 2 });
+```

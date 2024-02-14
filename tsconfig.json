@@ -23,6 +23,6 @@
     "declaration": true,
     "typeRoots": ["./dist/index.d.ts"]
   },
-  "include": ["lib", "./index.d.ts", "storybook/**/*", "lib/vite.config.ts"],
+  "include": ["lib", "./index.d.ts", "storybook/**/*", "lib/vite.config.ts", "docs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

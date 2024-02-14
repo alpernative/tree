@@ -14,11 +14,17 @@ const StyledImage = styled(Image)`
   border-radius: 10px;
 `;
 
+const StyledTreeText = styled.span`
+  color: #255ce8;
+  padding-left: 8px;
+`;
+
 export default {
   logo: (
     <StyledLogo>
       <StyledImage src="/logo.png" width={40} height={40} />
       <span>Alper Native</span>
+      <StyledTreeText>Tree</StyledTreeText>
     </StyledLogo>
   ),
   docsRepositoryBase: 'https://github.com/alpernative/tree/tree/master/website',

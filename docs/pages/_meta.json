@@ -3,10 +3,8 @@
   "guidlines": "Guidelines",
   "---": {
     "type": "separator",
-    "title": "Themes"
+    "title": "API Reference"
   },
-  "github_link": {
-    "title": "AlperNative Tree",
-    "href": "https://github.com/alpernative/tree"
-  }
+  "components": "Components",
+  "functions": "Functions"
 }
