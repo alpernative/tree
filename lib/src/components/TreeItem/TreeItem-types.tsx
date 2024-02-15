@@ -6,6 +6,7 @@ import {
   DraggableProvidedDragHandleProps,
   DraggingStyle,
 } from '@hello-pangea/dnd';
+import { Any } from 'docs/types';
 
 import { ItemId, Path, TreeItem } from 'lib/src/types';
 
@@ -18,8 +19,8 @@ export type TreeDraggingStyle = DraggingStyle & {
 
 export type DragActionType = null | 'mouse' | 'key' | 'touch';
 
-export type RenderItemParams = {
-  item: TreeItem;
+export type RenderItemParams<TData = Any> = {
+  item: TreeItem<TData>;
   depth: number;
   onExpand: (ItemId: ItemId) => void;
   onCollapse: (ItemId: ItemId) => void;
