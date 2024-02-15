@@ -1,21 +1,21 @@
 export type ItemId = string | number;
 
-export interface TreeData {
+export interface TreeData<TData = Any> {
   rootId: ItemId;
-  items: Record<ItemId, TreeItem>;
+  items: Record<ItemId, TreeItem<TData>>;
 }
 
 export type Any = any; // eslint-disable-line
 
 export type TreeItemData = Any;
 
-export type TreeItem = {
+export type TreeItem<TData = Any> = {
   id: ItemId;
   children: ItemId[];
   hasChildren?: boolean;
   isExpanded?: boolean;
   isChildrenLoading?: boolean;
-  data?: TreeItemData;
+  data?: TData;
 };
 
 export type FlattenedTree = FlattenedItem[];

@@ -1,6 +1,6 @@
 {
   "name": "@alpernative/tree",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "type": "module",
   "main": "dist/index.umd.js",
   "license": "MIT",
